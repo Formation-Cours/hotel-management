@@ -47,4 +47,6 @@ public class ChambreEntity {
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
 
+    @OneToMany(mappedBy = "chambre")
+    private List<ChambreServiceEntity> chambreServices;
 }

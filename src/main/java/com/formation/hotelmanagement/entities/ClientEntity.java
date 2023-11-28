@@ -45,6 +45,5 @@ public class ClientEntity {
     private LocalDateTime lastModifiedDate;
 
     @OneToMany(mappedBy = "client")
-    @JsonManagedReference
     private List<ReservationEntity> reservations;
 }

@@ -15,7 +15,7 @@
 		<text x="136" y="52.75" fill="#000000" font-family="Verdana" font-size="12">CONCERNER</text>
 	</g>
 	<text x="226" y="77" fill="#4d9221" font-family="Verdana" font-size="12">1,1</text>
-	<text x="179" y="111" fill="#4d9221" font-family="Verdana" font-size="12">1,N</text>
+	<text x="179" y="111" fill="#4d9221" font-family="Verdana" font-size="12">0,N</text>
 </g>
 
 <!-- Association EFFECTUER -->
@@ -29,7 +29,7 @@
 		<line x1="382" y1="60" x2="466" y2="60" stroke="#de77ae" stroke-width="1"/>
 		<text x="389" y="52.75" fill="#000000" font-family="Verdana" font-size="12">EFFECTUER</text>
 	</g>
-	<text x="429" y="111" fill="#4d9221" font-family="Verdana" font-size="12">1,N</text>
+	<text x="429" y="111" fill="#4d9221" font-family="Verdana" font-size="12">0,N</text>
 	<text x="355" y="77" fill="#4d9221" font-family="Verdana" font-size="12">1,1</text>
 </g>
 
@@ -47,8 +47,8 @@
 		<text x="16" y="195.8" fill="#000000" font-family="Verdana" font-size="12">heure</text>
 		<text x="16" y="212.8" fill="#000000" font-family="Verdana" font-size="12">commentaire</text>
 	</g>
-	<text x="108" y="195" fill="#4d9221" font-family="Verdana" font-size="12">1,N</text>
-	<text x="61" y="128" fill="#4d9221" font-family="Verdana" font-size="12">1,N</text>
+	<text x="108" y="195" fill="#4d9221" font-family="Verdana" font-size="12">0,N</text>
+	<text x="61" y="128" fill="#4d9221" font-family="Verdana" font-size="12">0,N</text>
 </g>
 
 <!-- Entity SERVICE -->

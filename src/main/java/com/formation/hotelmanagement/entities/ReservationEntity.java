@@ -30,7 +30,6 @@ public class ReservationEntity {
     private LocalDateTime dateFin;
 
     @ManyToOne
-    @JsonBackReference
     private ClientEntity client;
 
     @ManyToOne

@@ -1,5 +1,7 @@
 package com.formation.hotelmanagement.contollers;
 
+import com.formation.hotelmanagement.dtos.ClientDTO;
+import com.formation.hotelmanagement.dtos.MyMapperDTO;
 import com.formation.hotelmanagement.entities.ClientEntity;
 import com.formation.hotelmanagement.entities.ReservationEntity;
 import com.formation.hotelmanagement.repositories.ClientRepository;
@@ -17,10 +19,12 @@ public class MainController {
 
     private final ClientRepository clientRepository;
     private final ReservationRepository reservationRepository;
+    private final MyMapperDTO myMapperDTO;
 
-    public MainController(ClientRepository clientRepository, ReservationRepository reservationRepository) {
+    public MainController(ClientRepository clientRepository, ReservationRepository reservationRepository, MyMapperDTO myMapperDTO) {
         this.clientRepository = clientRepository;
         this.reservationRepository = reservationRepository;
+        this.myMapperDTO = myMapperDTO;
 
         ClientEntity client = new ClientEntity(null, "Michaux", "Samuel", "sam@sam.fr", "12345678", null, null, null);
         clientRepository.save(client);
@@ -30,8 +34,11 @@ public class MainController {
     }
 
     @GetMapping("/clients")
-    public List<ClientEntity> getAllClients() {
-        return clientRepository.findAll();
+    public List<ClientDTO> getAllClients() {
+        return clientRepository.findAll()
+                .stream()
+                .map(myMapperDTO::convertToDTOClient)
+                .toList();
     }
 
     @GetMapping("/reservations")
