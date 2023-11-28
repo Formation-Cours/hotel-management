@@ -1,7 +1,9 @@
 package com.formation.hotelmanagement.contollers;
 
-import com.formation.hotelmanagement.dtos.ClientDTO;
-import com.formation.hotelmanagement.dtos.MyMapperDTO;
+import com.formation.hotelmanagement.dtos.client.ClientAvecReservationDTO;
+import com.formation.hotelmanagement.dtos.client.ClientMapperDTO;
+import com.formation.hotelmanagement.dtos.reservation.ReservationGetClientGetChambreDTO;
+import com.formation.hotelmanagement.dtos.reservation.ReservationMapperDTO;
 import com.formation.hotelmanagement.entities.ClientEntity;
 import com.formation.hotelmanagement.entities.ReservationEntity;
 import com.formation.hotelmanagement.repositories.ClientRepository;
@@ -19,12 +21,10 @@ public class MainController {
 
     private final ClientRepository clientRepository;
     private final ReservationRepository reservationRepository;
-    private final MyMapperDTO myMapperDTO;
 
-    public MainController(ClientRepository clientRepository, ReservationRepository reservationRepository, MyMapperDTO myMapperDTO) {
+    public MainController(ClientRepository clientRepository, ReservationRepository reservationRepository) {
         this.clientRepository = clientRepository;
         this.reservationRepository = reservationRepository;
-        this.myMapperDTO = myMapperDTO;
 
         ClientEntity client = new ClientEntity(null, "Michaux", "Samuel", "sam@sam.fr", "12345678", null, null, null);
         clientRepository.save(client);
@@ -34,15 +34,18 @@ public class MainController {
     }
 
     @GetMapping("/clients")
-    public List<ClientDTO> getAllClients() {
+    public List<ClientAvecReservationDTO> getAllClients() {
         return clientRepository.findAll()
                 .stream()
-                .map(myMapperDTO::convertToDTOClient)
+                .map(ClientMapperDTO::convertToDTOClientWithReservation)
                 .toList();
     }
 
     @GetMapping("/reservations")
-    public List<ReservationEntity> getAllReservations() {
-        return reservationRepository.findAll();
+    public List<ReservationGetClientGetChambreDTO> getAllReservations() {
+        return reservationRepository.findAll()
+                .stream()
+                .map(ReservationMapperDTO::convertToDTOReservationGetClientGetChambre)
+                .toList();
     }
 }
