@@ -9,5 +9,5 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class ServiceAvecChambreServiceByServiceDTO extends ServiceDTO {
-    private List<ChambreServiceByServiceDTO> chambresServices;
+    private List<ChambreServiceByServiceDTO> chambreServices;
 }
