@@ -1,7 +1,7 @@
 package com.formation.hotelmanagement.dtos.chambre;
 
+import com.formation.hotelmanagement.dtos.chambre_service.ChambreServiceByChambreDTO;
 import com.formation.hotelmanagement.dtos.reservation.ReservationByChambreDTO;
-import com.formation.hotelmanagement.enums.TypeChambreEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,4 +11,5 @@ import java.util.List;
 @Data
 public class ChambreAvecReservationDTO extends ChambreDTO {
     private List<ReservationByChambreDTO> reservations;
+    private List<ChambreServiceByChambreDTO> services;
 }

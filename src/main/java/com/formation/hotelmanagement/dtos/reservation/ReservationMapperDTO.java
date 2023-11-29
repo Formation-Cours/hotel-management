@@ -32,4 +32,15 @@ public class ReservationMapperDTO {
         return reservationDTO;
     }
 
+    public static ReservationByChambreDTO convertToDTOReservationByChambre(ReservationEntity reservationEntity) {
+        ReservationByChambreDTO reservationDTO = new ReservationByChambreDTO();
+        reservationDTO.setId(reservationEntity.getId());
+        reservationDTO.setDateDebut(reservationEntity.getDateDebut());
+        reservationDTO.setDateFin(reservationEntity.getDateFin());
+        if (reservationEntity.getClient() != null) {
+            reservationDTO.setClientDTO(ClientMapperDTO.convertToDTOClient(reservationEntity.getClient()));
+        }
+        return reservationDTO;
+    }
+
 }
