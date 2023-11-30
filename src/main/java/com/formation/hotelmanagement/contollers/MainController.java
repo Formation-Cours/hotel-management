@@ -14,6 +14,7 @@ import com.formation.hotelmanagement.entities.ReservationEntity;
 import com.formation.hotelmanagement.repositories.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -65,6 +66,7 @@ public class MainController {
     }
 
     @PostMapping("/reservations")
+    @Transactional
     public ReservationGetClientGetChambreDTO createReservation(@RequestBody ReservationGetClientGetChambreDTO reservationGetClientGetChambreDTO) {
         ReservationEntity reservationEntity = new ReservationEntity();
         reservationEntity.setDateDebut(reservationGetClientGetChambreDTO.getDateDebut());

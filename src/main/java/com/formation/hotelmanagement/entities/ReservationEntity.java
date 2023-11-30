@@ -30,10 +30,10 @@ public class ReservationEntity {
     @Column(nullable = false)
     private LocalDateTime dateFin;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST})
+    @ManyToOne
     private ClientEntity client;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private ChambreEntity chambre;
 
     @CreatedDate

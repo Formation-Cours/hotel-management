@@ -25,12 +25,6 @@ public class ChambreServiceEntity {
     @MapsId("serviceId")
     private ServiceEntity service;
 
-    @Column(nullable = false)
-    private LocalDate date;
-
-    @Column(nullable = false)
-    private LocalTime heure;
-
     @Column(columnDefinition = "TEXT")
     private String commentaire;
 }
