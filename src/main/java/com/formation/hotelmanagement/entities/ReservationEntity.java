@@ -1,6 +1,5 @@
 package com.formation.hotelmanagement.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +11,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "reservation",uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"chambre_id", "client_id", "date_debut", "date_fin"})
+})
 @EntityListeners(AuditingEntityListener.class)
 @Data
 @NoArgsConstructor
@@ -29,10 +30,10 @@ public class ReservationEntity {
     @Column(nullable = false)
     private LocalDateTime dateFin;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     private ClientEntity client;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private ChambreEntity chambre;
 
     @CreatedDate

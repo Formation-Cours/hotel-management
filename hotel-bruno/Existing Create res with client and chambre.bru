@@ -1,0 +1,32 @@
+meta {
+  name: Existing Create res with client and chambre
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/reservations
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "dateDebut": "2023-11-30T12:00:00",
+    "dateFin": "2023-12-01T12:00:00",
+    "clientDTO": {
+      "id": 3,
+      "nom": "Oldroyd",
+      "prenom": "Cathee",
+      "email": "coldroyd2@storify.com",
+      "telephone": "2954482108"
+    },
+    "chambre": {
+      "id": 6,
+      "numero": "386",
+      "type": "LIT_KING_SIZE",
+      "prixParNuit": 465.51,
+      "disponible": true
+    }
+  }
+}
